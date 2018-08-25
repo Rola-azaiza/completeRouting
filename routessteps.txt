@@ -1,0 +1,13 @@
+ÑÇÍ ääÔÆ ÇáßãÈæääÊÓ
+ÊÚãáí ãáİ ÊÍØí İíå ÇáãÓÇÑÇÊ routes.module
+ÊÓÊÏÚí RoutesModule   İí app module
+app.html with nav bar
+dont forget CSS
+dont forget 2 linkes in index page 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  
+ÚÔÇä íÊã ÊİÚíá 
+<router-outlet></router-outlet>
+
+[routerlink] 
+in app.ts constructore call router

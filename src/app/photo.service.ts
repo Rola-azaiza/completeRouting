@@ -1,0 +1,31 @@
+import {Inject, Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Photo} from './models/photo';
+import {map} from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PhotoService {
+
+  constructor(
+    @Inject('API_URL') private apiURL: string,
+    private http: HttpClient
+  ) { }
+
+  getPhotos(query: string): Observable<Photo[]>  {
+    const httpOptions = {};
+    if(query) {
+      httpOptions['params'] = new HttpParams().set('albumId', query);
+    }
+    return this.http.get(`${this.apiURL}/photos`, httpOptions).pipe(
+      map((items: any[]) => {
+        return items.map(item => new Photo(item));
+      }));
+  }
+
+  getPhoto(id: number): Observable<Photo> {
+    return this.http.get<Photo>(`${this.apiURL}/photos/${id}`);
+  }
+}
